@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+    <form #f="ngForm" (ngSubmit)="onSignUp(f)">
+      <div class="form-group">
+        <label for="email">Mail</label>
+        <input type="email" id="email" name="email" ngModel class="form-control" required #email=ngModel>
+        <p *ngIf="!email.valid && email.touched">Please enter a valid email ID</p>
+      </div>
+      <div class="form-group">
+        <label for="passwrod">Password</label>
+        <input type="password" id="password" name="password" ngModel class="form-control" required #pass=ngModel minlength="8"/>
+        <p *ngIf="!pass.valid && pass.touched">Password should be atleast 8 characters long</p>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Sign Up</button>
+    </form>
+  </div>
+</div>
